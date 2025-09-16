@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Public Transport Tracker</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <a href="#" class="logo"><i class="fas fa-bus"></i>Smart Transport</a>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="buses.html">Buses</a>
+      <a href="#routes">Routes</a>
+      <a href="#review">Feedback</a>
+      <a href="#blogs">Updates</a>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-bars" id="menu-btn"></div>
+      <div class="fas fa-search" id="search-btn"></div>
+      <div class="fas fa-user" id="login-btn"></div>
+    </div>
+
+    <!-- Search -->
+    <form action="" class="search-form">
+      <input type="search" id="search-box" placeholder="Search buses or routes...">
+      <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+    <!-- Login -->
+    <form action="" class="login-form">
+      <h3>Login</h3>
+      <input type="email" placeholder="Your email" class="box">
+      <input type="password" placeholder="Your password" class="box">
+      <p>Forgot password? <a href="#">Click here</a></p>
+      <p>Don’t have an account? <a href="#">Register now</a></p>
+      <input type="submit" value="Login" class="btn">
+    </form>
+  </header>
+  <!-- Header Ends -->
+
+  <!-- Home Section -->
+  <section class="home" id="home">
+    <div class="content">
+      <h3>Real-Time <span>Public Transport</span> Tracking</h3>
+      <p>Track buses live, view routes, and get estimated arrival times with our smart transport tracking system.</p>
+      <a href="map.html"  class="btn">Track Now</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <h1 class="heading">Our <span>Features</span></h1>
+    <div class="box-container">
+      <!-- Feature 1: Live Bus Tracking -->
+      <div class="box" id="live-tracking-btn">
+        <i class="fas fa-map-marker-alt fa-3x"></i>
+        <h3>Live Bus Tracking</h3>
+        <p>Track your bus in real-time with GPS integration and interactive maps.</p>
+        <!-- New button to navigate -->
+        <button onclick="window.location.href='buses.html'" class="btn">View All Buses</button>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="box">
+        <i class="fas fa-route fa-3x"></i>
+        <h3>Route Information</h3>
+        <p>Find detailed routes, stops, and estimated arrival times for all buses.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="box">
+        <i class="fas fa-bell fa-3x"></i>
+        <h3>Smart Alerts</h3>
+        <p>Get notified about delays, traffic conditions, and alternative routes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback -->
+  <section class="review" id="review">
+    <h1 class="heading">User <span>Feedback</span></h1>
+    <div class="swiper review-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide box">
+          <p>“The live bus tracking saved me a lot of time. Very useful!”</p>
+          <h3>Ravi</h3>
+        </div>
+        <div class="swiper-slide box">
+          <p>“Now I don’t have to wait at the stop for hours. Amazing system!”</p>
+          <h3>Meena</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Updates / Blogs -->
+  <section class="blogs" id="blogs">
+    <h1 class="heading">Latest <span>Updates</span></h1>
+    <div class="box-container">
+      <div class="box">
+        <i class="fas fa-info-circle fa-3x"></i>
+        <div class="content">
+          <h3>New Buses Added</h3>
+          <p>We’ve added 10 new buses covering rural areas with live GPS updates.</p>
+        </div>
+      </div>
+      <div class="box">
+        <i class="fas fa-exclamation-triangle fa-3x"></i>
+        <div class="content">
+          <h3>Traffic Alerts</h3>
+          <p>Heavy traffic reported on NH45, buses on Route 101 may be delayed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <section class="footer">
+    <div class="box-container">
+      <div class="box">
+        <h3>Contact Us</h3>
+        <p>Email: support@smarttransport.com</p>
+        <p>Phone: +91 9876543210</p>
+        <p>Address: Kovilpatti, Tamil Nadu</p>
+      </div>
+      <div class="box">
+        <h3>Follow Us</h3>
+        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+    <div class="credit">Created by <span> Indian Support & Team</span> | All rights reserved</div>
+  </section>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punjab Bus Tracker</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    body, html { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([31.1471, 75.3412], 7); // Punjab center coordinates
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Example bus markers
+    var buses = [
+      {name: "Bus 101", coords: [31.5820, 74.3290]}, // Ludhiana
+      {name: "Bus 102", coords: [30.9010, 75.8573]}, // Amritsar
+      {name: "Bus 103", coords: [31.6340, 74.8723]}  // Jalandhar
+    ];
+
+    buses.forEach(function(bus) {
+      L.marker(bus.coords).addTo(map)
+        .bindPopup("<b>" + bus.name + "</b>")
+        .openPopup();
+    });
+  </script>
+</body>
+</html>
