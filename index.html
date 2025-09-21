@@ -67,7 +67,7 @@
   <div class="search-box">
     <div class="input-group">
       <label><i class="fas fa-map-marker-alt"></i> From</label>
-      <input type="text" id="from-input" placeholder="Enter Source" >
+      <input type="text" id="from-input" placeholder="Enter Source" required>
     </div>
 
     <div class="swap-btn">
@@ -76,17 +76,17 @@
 
     <div class="input-group">
       <label><i class="fas fa-map-marker-alt"></i> To</label>
-      <input type="text" id="to-input" placeholder="Enter Destination" >
+      <input type="text" id="to-input" placeholder="Enter Destination" required>
     </div>
 
     <div class="input-group">
       <label><i class="fas fa-calendar-alt"></i> Journey Date</label>
-      <input type="date" id="date-input">
+      <input type="date" id="date-input" required>
     </div>
 
-    <button id="search-buses-btn" class="btn search-btn">
-      <i class="fas fa-search"></i> Search Buses
-    </button>
+    <div  id="search-buses-btn" class="btn search-btn">
+        <a href="buses.html">Search Buses</a>
+    </div>
   </div>
 </section>
 

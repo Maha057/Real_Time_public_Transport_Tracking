@@ -58,13 +58,14 @@ var swiper = new Swiper(".review-slider", {
   }
 });
 
-// ✅ Track now button
+
 document.getElementById('track-now-btn').addEventListener('click', function() {
   window.location.href = 'map.html';
 });
 
-// ✅ Search Buses button
-document.getElementById("search-buses-btn").addEventListener("click", function () {
-  window.location.href = "buses.html";
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('search-buses-btn').addEventListener('click', function () {
+    window.location.href = 'buses.html';
+  });
 });
 
