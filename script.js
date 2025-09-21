@@ -59,13 +59,44 @@ var swiper = new Swiper(".review-slider", {
 });
 
 
-document.getElementById('track-now-btn').addEventListener('click', function() {
-  window.location.href = 'map.html';
-});
-
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById('search-buses-btn').addEventListener('click', function () {
-    window.location.href = 'buses.html';
+
+  // Fix Track Now button
+  const trackNowBtn = document.getElementById('track-now-btn');
+  if (trackNowBtn) {
+    trackNowBtn.addEventListener('click', () => {
+      window.location.href = 'map.html';
+    });
+  }
+
+ 
+  const fromInput = document.getElementById("from-input");
+  const toInput = document.getElementById("to-input");
+  const dateInput = document.getElementById("date-input");
+  const searchBtn = document.getElementById("search-buses-btn");
+
+  function validateInputs() {
+    if (fromInput.value.trim() !== "" && 
+        toInput.value.trim() !== "" && 
+        dateInput.value.trim() !== "") {
+      searchBtn.disabled = false; // enable
+    } else {
+      searchBtn.disabled = true;  // keep disabled
+    }
+  }
+
+  // Check inputs whenever user types or picks a date
+  fromInput.addEventListener("input", validateInputs);
+  toInput.addEventListener("input", validateInputs);
+  dateInput.addEventListener("input", validateInputs);
+
+  // Button click → navigate
+  searchBtn.addEventListener("click", () => {
+    if (!searchBtn.disabled) {
+      window.location.href = "buses.html";
+    }
   });
 });
+
+
 
