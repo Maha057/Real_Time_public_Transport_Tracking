@@ -79,24 +79,26 @@ document.addEventListener("DOMContentLoaded", () => {
     if (fromInput.value.trim() !== "" && 
         toInput.value.trim() !== "" && 
         dateInput.value.trim() !== "") {
-      searchBtn.disabled = false; // enable
+      searchBtn.disabled = false; 
     } else {
-      searchBtn.disabled = true;  // keep disabled
+      searchBtn.disabled = true; 
     }
   }
 
-  // Check inputs whenever user types or picks a date
   fromInput.addEventListener("input", validateInputs);
   toInput.addEventListener("input", validateInputs);
   dateInput.addEventListener("input", validateInputs);
 
-  // Button click → navigate
+
   searchBtn.addEventListener("click", () => {
     if (!searchBtn.disabled) {
       window.location.href = "buses.html";
     }
   });
 });
+
+
+
 
 
 
