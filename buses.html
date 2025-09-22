@@ -18,50 +18,62 @@
         <h3>Bus 101</h3>
         <p>Route: Kovilpatti → Tirunelveli</p>
         <p>ETA: 10 mins</p>
-        <button class="book-btn" onclick="bookSeats('101')">Book Seats</button>
+        <button class="book-btn" data-id="101">Book Seats</button>
       </div>
       <div class="bus">
         <h3>Bus 202</h3>
         <p>Route: Madurai → Chennai</p>
         <p>ETA: 15 mins</p>
-        <button class="book-btn" onclick="bookSeats('202')">Book Seats</button>
+        <button class="book-btn" data-id="202">Book Seats</button>
       </div>
       <div class="bus">
         <h3>Bus 303</h3>
         <p>Route: Tuticorin → Coimbatore</p>
         <p>ETA: 20 mins</p>
-        <button class="book-btn" onclick="bookSeats('303')">Book Seats</button>
+        <button class="book-btn" data-id="303">Book Seats</button>
       </div>
       <div class="bus">
         <h3>Bus 404</h3>
         <p>Route: Chennai → Bangalore</p>
         <p>ETA: 25 mins</p>
-        <button class="book-btn" onclick="bookSeats('404')">Book Seats</button>
+        <button class="book-btn" data-id="404">Book Seats</button>
       </div>
       <div class="bus">
         <h3>Bus 505</h3>
         <p>Route: Salem → Erode</p>
         <p>ETA: 30 mins</p>
-        <button class="book-btn" onclick="bookSeats('505')">Book Seats</button>
+        <button class="book-btn" data-id="505">Book Seats</button>
       </div>
       <div class="bus">
         <h3>Bus 606</h3>
         <p>Route: Kanyakumari → Madurai</p>
         <p>ETA: 35 mins</p>
-        <button class="book-btn" onclick="bookSeats('606')">Book Seats</button>
+        <button class="book-btn" data-id="606">Book Seats</button>
       </div>
       <div class="bus">
         <h3>Bus 707</h3>
         <p>Route: Trichy → Pondicherry</p>
         <p>ETA: 40 mins</p>
-        <button class="book-btn" onclick="bookSeats('707')">Book Seats</button>
+        <button class="book-btn" data-id="707">Book Seats</button>
       </div>
     </div>
   </section>
 
-
+  <script >
+     document.querySelectorAll(".book-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const busId = btn.getAttribute("data-id");
+      if(busId) {
+        // Pass busId in URL
+        window.location.href = `bookseats.html?bus=${busId}`;
+      }
+    });
+  });
+  </script>
   <footer class="footer">
     <div class="credit">Created by <span> Indian Support & Team</span> | All rights reserved</div>
   </footer>
+
+  
 </body>
 </html>
