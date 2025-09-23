@@ -89,3 +89,91 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+// Sample seat layout generation
+const seatLayout = document.getElementById("seatLayout");
+const rows = 9; // 9 rows
+const leftSeats = 2;
+const rightSeats = 3;
+const seatPrice = 200; // example price per seat
+let selectedSeats = [];
+
+// Sample booked seats
+const bookedSeats = ["A1", "B3", "C2"]; // already booked
+
+for (let i = 0; i < rows; i++) {
+  const rowDiv = document.createElement("div");
+  rowDiv.classList.add("row");
+
+  const leftDiv = document.createElement("div");
+  leftDiv.classList.add("left-side");
+  for (let j = 0; j < leftSeats; j++) {
+    const seatNo = String.fromCharCode(65 + i) + (j + 1);
+    const seatBtn = document.createElement("div");
+    seatBtn.classList.add("seat");
+    seatBtn.textContent = seatNo;
+    seatBtn.innerHTML += `<span class="price">₹${seatPrice}</span>`;
+    if (bookedSeats.includes(seatNo)) seatBtn.classList.add("booked");
+    seatBtn.addEventListener("click", () => toggleSeat(seatBtn, seatNo));
+    leftDiv.appendChild(seatBtn);
+  }
+
+  const aisle = document.createElement("div");
+  aisle.classList.add("aisle");
+
+  const rightDiv = document.createElement("div");
+  rightDiv.classList.add("right-side");
+  for (let j = 0; j < rightSeats; j++) {
+    const seatNo = String.fromCharCode(65 + i) + (j + 1 + leftSeats);
+    const seatBtn = document.createElement("div");
+    seatBtn.classList.add("seat");
+    seatBtn.textContent = seatNo;
+    seatBtn.innerHTML += `<span class="price">₹${seatPrice}</span>`;
+    if (bookedSeats.includes(seatNo)) seatBtn.classList.add("booked");
+    seatBtn.addEventListener("click", () => toggleSeat(seatBtn, seatNo));
+    rightDiv.appendChild(seatBtn);
+  }
+
+  rowDiv.appendChild(leftDiv);
+  rowDiv.appendChild(aisle);
+  rowDiv.appendChild(rightDiv);
+  seatLayout.appendChild(rowDiv);
+}
+
+// Seat selection toggle
+function toggleSeat(seatBtn, seatNo) {
+  if (seatBtn.classList.contains("booked")) return;
+
+  if (seatBtn.classList.contains("selected")) {
+    seatBtn.classList.remove("selected");
+    selectedSeats = selectedSeats.filter(s => s !== seatNo);
+  } else {
+    seatBtn.classList.add("selected");
+    selectedSeats.push(seatNo);
+  }
+
+  updateSummary();
+}
+
+// Update summary
+function updateSummary() {
+  const subtotal = selectedSeats.length * seatPrice;
+  const gst = Math.round(subtotal * 0.05);
+  const total = subtotal + gst;
+
+  document.getElementById("selectedSeats").textContent = selectedSeats.join(", ") || "None";
+  document.getElementById("subtotal").textContent = subtotal;
+  document.getElementById("gst").textContent = gst;
+  document.getElementById("total").textContent = total;
+
+  const continueBtn = document.getElementById("continueBtn");
+  continueBtn.disabled = selectedSeats.length === 0;
+
+  // Save data to localStorage for payment page
+  localStorage.setItem("selectedSeats", selectedSeats.join(", "));
+  localStorage.setItem("totalAmount", total);
+}
+
+// Continue to payment
+document.getElementById("continueBtn").addEventListener("click", () => {
+  window.location.href = "payment.html";
+});
