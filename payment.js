@@ -44,3 +44,24 @@ document.getElementById("payBtn").addEventListener("click", () => {
   const rzp = new Razorpay(options);
   rzp.open();
 });
+// Aadhaar validation
+document.getElementById("aadhaar").addEventListener("input", function () {
+  let aadhaarInput = this.value.trim();
+  let status = document.getElementById("aadhaarStatus");
+
+  // Check if only digits
+  if (!/^\d*$/.test(aadhaarInput)) {
+    status.textContent = "❌ Only digits allowed";
+    status.style.color = "red";
+    return;
+  }
+
+  if (aadhaarInput.length === 12) {
+    status.textContent = "✔ Verified";
+    status.style.color = "green";
+  } else {
+    status.textContent = "❌ Aadhaar must be 12 digits";
+    status.style.color = "red";
+  }
+});
+

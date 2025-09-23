@@ -4,24 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Smart Public Transport Tracker</title>
+  <link rel="stylesheet"  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet"  href="style.css"/>
+  <style>
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 5%;
+    }
 
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="style.css"/>
-  
+    .header-logo {
+      height: 40px; /* adjust size */
+      width: auto;
+    }
+
+    .left-logo {
+      margin-right: 15px;
+    }
+
+    .right-logo {
+      margin-left: 15px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 0 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .navbar a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
   <!-- Header Section -->
   <header class="header">
-    <a href="#" class="logo"><i class="fas fa-bus"></i>Smart Transport</a>
+    <!-- Left Logo -->
+    <img src="C:\Users\MAHA\OneDrive\Desktop\Real_Time_Public_Transport _tracking\Team_Name_logo.jpeg" alt="Left Logo" class="header-logo left-logo">
+
+    <a href="#" class="logo"><i class="fas fa-bus"></i> Smart Transport</a>
+
     <nav class="navbar">
       <a href="#home">Home</a>
       <a href="#features">Features</a>
-      <a href="buses.html">Buses</a>
+      <a href="buses">Buses</a>
       <a href="#routes">Routes</a>
       <a href="#review">Feedback</a>
       <a href="#blogs">Updates</a>
     </nav>
+
+    <!-- Right Logo -->
+    <img src="C:\Users\MAHA\OneDrive\Desktop\Real_Time_Public_Transport _tracking\SIH_LOGO.jpeg" alt="Right Logo" class="header-logo right-logo">
 
     <div class="icons">
       <div class="fas fa-bars" id="menu-btn"></div>
@@ -41,14 +81,11 @@
       <input type="email" placeholder="Your email" class="box">
       <input type="password" placeholder="Your password" class="box">
       <p>Forgot password? <a href="#">Click here</a></p>
-      <p>Don’t have an account? <a href="#">Register now</a></p>
+      <p>Don't have an account? <a href="#">Register now</a></p>
       <input type="submit" value="Login" class="btn">
     </form>
   </header>
   <!-- Header Ends -->
-
-
-
 
   <!-- Home Section -->
   <section class="home" id="home">
@@ -59,62 +96,47 @@
     </div>
   </section>
 
-  <!-- Features -->
-
-
-
   <!-- Bus Search Section -->
-<section class="bus-search">
-  <div class="search-box">
-    <div class="input-group">
-      <label><i class="fas fa-map-marker-alt"></i> From</label>
-      <input type="text" id="from-input" placeholder="Enter Source" required>
+  <section class="bus-search">
+    <div class="search-box">
+      <div class="input-group">
+        <label><i class="fas fa-map-marker-alt"></i> From</label>
+        <input type="text" id="from-input" placeholder="Enter Source" required>
+      </div>
+
+      <div class="swap-btn">
+        <i class="fas fa-exchange-alt"></i>
+      </div>
+
+      <div class="input-group">
+        <label><i class="fas fa-map-marker-alt"></i> To</label>
+        <input type="text" id="to-input" placeholder="Enter Destination" required>
+      </div>
+
+      <div class="input-group">
+        <label><i class="fas fa-calendar-alt"></i> Journey Date</label>
+        <input type="date" id="date-input" required>
+      </div>
+
+      <button type="button" id="search-buses-btn" class="btn search-btn" disabled>
+        Search Buses
+      </button>
     </div>
-
-    <div class="swap-btn">
-      <i class="fas fa-exchange-alt"></i>
-    </div>
-
-    <div class="input-group">
-      <label><i class="fas fa-map-marker-alt"></i> To</label>
-      <input type="text" id="to-input" placeholder="Enter Destination" required>
-    </div>
-
-    <div class="input-group">
-      <label><i class="fas fa-calendar-alt"></i> Journey Date</label>
-      <input type="date" id="date-input" required>
-    </div>
-
-   <button type="button" id="search-buses-btn" class="btn search-btn" disabled>
-  Search Buses
-</button>
-  </div>
-</section>
-
-
-  </div>
-</section>
+  </section>
 
   <section class="features" id="features">
     <h1 class="heading">Our <span>Features</span></h1>
     <div class="box-container">
-      <!-- Feature 1: Live Bus Tracking -->
       <div class="box" id="live-tracking-btn">
         <i class="fas fa-map-marker-alt fa-3x"></i>
         <h3>Live Bus Tracking</h3>
         <p>Track your bus in real-time with GPS integration and interactive maps.</p>
-        <!-- New button to navigate -->
-        
       </div>
-
-      <!-- Feature 2 -->
       <div class="box">
         <i class="fas fa-route fa-3x"></i>
         <h3>Route Information</h3>
         <p>Find detailed routes, stops, and estimated arrival times for all buses.</p>
       </div>
-
-      <!-- Feature 3 -->
       <div class="box">
         <i class="fas fa-bell fa-3x"></i>
         <h3>Smart Alerts</h3>
@@ -140,7 +162,7 @@
     </div>
   </section>
 
-  <!-- Updates / Blogs -->
+  <!-- Updates -->
   <section class="blogs" id="blogs">
     <h1 class="heading">Latest <span>Updates</span></h1>
     <div class="box-container">
