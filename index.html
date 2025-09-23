@@ -8,39 +8,162 @@
   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet"  href="style.css"/>
   <style>
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 5%;
-    }
+   /* Header Container */
+.header {
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 5%;
+}
 
-    .header-logo {
-      height: 120px; /* adjust size */
-      width: auto;
-    }
+/* Logos */
+.header-logo {
+  height: 80px; /* default size */
+  width: auto;
+  margin: 5px 0;
+}
 
-    .left-logo {
-      margin-right: 15px;
-    }
+.left-logo {
+  margin-right: 10px;
+}
 
-    .right-logo {
-      margin-left: 15px;
-    }
+.right-logo {
+  margin-left: 10px;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 0 15px;
-      color: #333;
-      text-decoration: none;
-    }
+/* Main site logo */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 10px;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
 
-    .navbar a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #333;
-    }
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.navbar a {
+  margin: 5px 10px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+
+/* Hamburger menu (optional) */
+.icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* stack vertically */
+    align-items: center;
+  }
+
+  .header-logo {
+    height: 60px; /* smaller logos */
+  }
+
+  .logo {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .navbar a {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    height: 50px; /* very small screens */
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+}
+#chatbot-container {
+  position: fixed;
+  bottom: 2vh;       /* distance from bottom adjusts with viewport */
+  right: 2vw;        /* distance from right adjusts */
+  width: 18vw;        /* width relative to viewport */
+  max-width: 250px;   /* prevent too large on big screens */
+  min-width: 180px;   /* prevent too small on tiny screens */
+  height: 35vh;       /* height relative to viewport */
+  max-height: 350px;  /* cap height on large screens */
+  min-height: 200px;  /* minimum height on small screens */
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+}
+
+#chatbot-header {
+  background: #333;
+  color: #fff;
+  padding: 1vh 1vw;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+#chatbot-messages {
+  flex: 1;
+  padding: 1vh 1vw;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+#chatbot-input {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 1vh 1vw;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+/* Optional: smoother scaling for smaller phones */
+@media (max-width: 480px) {
+  #chatbot-container {
+    width: 15vw;
+    height: 20vh;
+  }
+
+  #chatbot-header {
+    font-size: 1rem;
+  }
+
+  #chatbot-messages {
+    font-size: 0.8rem;
+  }
+
+  #chatbot-input {
+    font-size: 0.8rem;
+  }
+}
+
+
   </style>
 </head>
 <body>
