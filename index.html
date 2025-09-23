@@ -16,7 +16,7 @@
     }
 
     .header-logo {
-      height: 40px; /* adjust size */
+      height: 120px; /* adjust size */
       width: auto;
     }
 
@@ -47,7 +47,7 @@
   <!-- Header Section -->
   <header class="header">
     <!-- Left Logo -->
-    <img src="C:\Users\MAHA\OneDrive\Desktop\Real_Time_Public_Transport _tracking\Team_Name_logo.jpeg" alt="Left Logo" class="header-logo left-logo">
+    <img src="Team_Name_logo.jpeg" alt="Left Logo" class="header-logo left-logo">
 
     <a href="#" class="logo"><i class="fas fa-bus"></i> Smart Transport</a>
 
@@ -61,7 +61,7 @@
     </nav>
 
     <!-- Right Logo -->
-    <img src="C:\Users\MAHA\OneDrive\Desktop\Real_Time_Public_Transport _tracking\SIH_LOGO.jpeg" alt="Right Logo" class="header-logo right-logo">
+    <img src="SIH_LOGO.jpeg" alt="Right Logo" class="header-logo right-logo">
 
     <div class="icons">
       <div class="fas fa-bars" id="menu-btn"></div>
@@ -203,5 +203,66 @@
 
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
+  <!-- Chatbot Widget -->
+<div id="chatbot-container">
+  <div id="chatbot-header">Smart Transport Assistant</div>
+  <div id="chatbot-messages"></div>
+  <input type="text" id="chatbot-input" placeholder="Ask me about buses..." />
+</div>
+
+<style>
+  #chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    z-index: 9999;
+  }
+  #chatbot-header {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+  }
+  #chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+  #chatbot-input {
+    border: none;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    outline: none;
+  }
+</style>
+
+<script>
+  const chatbotMessages = document.getElementById("chatbot-messages");
+  const chatbotInput = document.getElementById("chatbot-input");
+
+  chatbotInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      let msg = chatbotInput.value.trim();
+      if (msg !== "") {
+        chatbotMessages.innerHTML += "<p><b>You:</b> " + msg + "</p>";
+        chatbotMessages.innerHTML += "<p><b>Bot:</b> I'm still learning. In the future I'll answer about buses & routes!</p>";
+        chatbotInput.value = "";
+        chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+      }
+    }
+  });
+</script>
+
 </body>
 </html>
