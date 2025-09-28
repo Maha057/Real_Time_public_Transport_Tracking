@@ -744,3 +744,64 @@ header {
   background: #999;
   cursor: not-allowed;
 }
+/* 🔹 UDID Verification Section */
+.udid-verification {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+
+.udid-verification h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.udid-verification label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+.udid-verification input {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.udid-verification input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+/* 🔹 Status message */
+#udidStatus {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ✅ Valid state */
+#udidStatus.valid {
+  color: green;
+}
+
+/* ❌ Invalid state */
+#udidStatus.invalid {
+  color: red;
+}
+
+/* 🔹 Disabled button look */
+button.continue-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

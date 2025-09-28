@@ -32,10 +32,40 @@
       <h3>Total Amount: ₹<span id="total">0</span></h3>
     </div>
 
+    <!-- ✅ UDID Verification Section -->
+    <div class="udid-verification">
+      <h3>UDID Verification</h3>
+      <label for="udid">Enter UDID No:</label>
+      <input type="text" id="udid" placeholder="Enter your UDID number" maxlength="18" required>
+      <span id="udidStatus"></span>
+    </div>
+
     <button class="continue-btn" id="continueBtn" disabled>
       Continue to Payment
     </button>
   </div>
+
+  <script>
+    // ✅ UDID Verification logic with regex
+    const udidInput = document.getElementById("udid");
+    const udidStatus = document.getElementById("udidStatus");
+    const continueBtn = document.getElementById("continueBtn");
+
+    udidInput.addEventListener("input", () => {
+      const udid = udidInput.value.trim();
+      const udidPattern = /^[A-Z0-9]{18}$/; // 18 chars, only A-Z & 0-9
+
+      if (udidPattern.test(udid)) {
+        udidStatus.textContent = "✔ UDID Verified";
+        udidStatus.style.color = "green";
+        continueBtn.disabled = false; // enable payment button
+      } else {
+        udidStatus.textContent = "❌ Invalid UDID (must be 18 characters, A-Z & 0-9)";
+        udidStatus.style.color = "red";
+        continueBtn.disabled = true; // disable until valid
+      }
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
